@@ -1,0 +1,16 @@
+# Text extracted from copyrighted reference PDFs (Perry's Handbook etc.) - do not commit
+pdf_text/
+
+# Exploration scripts and their output, superseded by gas_absorption_project.py
+analyze.py
+build_page.py
+template.html
+profile.py
+timeseries.py
+pdftext.py
+profile_out.txt
+ts_out.txt
+
+# Python
+__pycache__/
+*.pyc
