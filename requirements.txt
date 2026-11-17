@@ -1,4 +1,4 @@
 pandas
 numpy
 openpyxl
-python-dotenv
+matplotlib
