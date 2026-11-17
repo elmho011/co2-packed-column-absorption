@@ -12,19 +12,37 @@ Analysis of a pilot packed column that absorbs CO₂ from air into dilute NaOH a
 
 ## Key results
 
+**In short:** the NaOH solution removed about **31% of the CO₂** from the air. That's roughly **18 times more** than plain water would remove under the same conditions. The column's pressure drop came out about **2× higher** than the standard design chart predicts.
+
+### 1. Pressure drop is about 2× the chart prediction
+- Across 18 gas and liquid flow combinations, the measured pressure drop was **1.3–3.3× higher** than the generalized pressure-drop correlation (GPDC), with a typical value of 1.9×.
+- The likely reason is that the column's small ½-in packing falls outside the range the chart was built for, so the prediction is an extrapolation.
+- The column is predicted to flood at about **16.5 SCFM of gas** at the lowest liquid rate (0.5 GPM). That limit falls to **11 SCFM** at 1.5 GPM.
+
+### 2. CO₂ transfers at K<sub>OG</sub>a ≈ 20 kmol/(h·m³·atm)
+- K<sub>OG</sub>a measures how quickly CO₂ moves from the gas into the liquid per unit of column volume. A higher value means a shorter column can do the same job.
+- The outlet CO₂ sensor read slightly high. Correcting for it raised the result from **15 → 20**, with an uncertainty of ±1.2 from a 4,000-trial Monte Carlo simulation.
+- **Literature check:** Perry's Handbook gives about 12 once its value is adjusted to this experiment's weaker NaOH. The measured value is higher, which makes sense because the smaller packing has more surface area for contact.
+
+### 3. NaOH absorbs far more than water
+- With NaOH, **31%** of the CO₂ was removed. For water at the same flows, the model predicts only **~2%**.
+- **Why:** NaOH reacts with CO₂ as soon as it dissolves, so the liquid never fills up and keeps absorbing all the way down the column. Water saturates almost right away and then stops absorbing.
+
+<details>
+<summary>Detailed numbers</summary>
+
 | Result | Value |
 |---|---|
-| K<sub>OG</sub>a, CO₂ into 0.076 M NaOH (sensor-corrected) | **19.9 ± 1.2 kmol/(h·m³·atm)** |
+| K<sub>OG</sub>a, sensor-corrected | 19.9 ± 1.2 kmol/(h·m³·atm) |
 | K<sub>OG</sub>a, uncorrected | 15.2 ± 0.8 kmol/(h·m³·atm) |
-| CO₂ removal at 7.5 SCFM gas, 1.35 GPM liquid | 31% (NaOH) vs. ~2% predicted for water |
-| Measured ΔP vs. GPDC prediction | 1.3–3.3× higher (median 1.9×) across 18 runs |
-| GPDC flooding gas rate (1.5 in H₂O/ft) | 16.5 SCFM at 0.5 GPM → 11.0 SCFM at 1.5 GPM |
-| Hatta number / effective interfacial area | Ha ≈ 8.8 · a<sub>eff</sub> ≈ 184 m²/m³ (~30% of dry packing area) |
+| CO₂ removal, NaOH / water (7.5 SCFM, 1.35 GPM) | 31% / ~2% |
+| Measured ΔP ÷ GPDC prediction | 1.3–3.3× (median 1.9×, n = 18) |
+| Flooding gas rate (0.5 → 1.5 GPM liquid) | 16.5 → 11.0 SCFM |
+| Analyzer calibration | out = 0.047 + 1.068 × in (n = 27) |
+| Hatta number / effective interfacial area | 8.8 / 184 m²/m³ (~30% of dry packing area) |
+| Perry's value scaled to 0.061 M [OH⁻] | ~12 kmol/(h·m³·atm) |
 
-- **Pressure drop:** the measured values run consistently above the GPDC curves. The packing factor for ½-in ceramic saddles (F<sub>p</sub> = 200 ft⁻¹) is off the chart's published range, so the prediction relies on extrapolation.
-- **K<sub>OG</sub>a:** a linear cross-calibration of the inlet and outlet CO₂ analyzers (n = 27, run with no liquid flowing) showed an offset in the outlet sensor. Correcting for it raises K<sub>OG</sub>a by about 31%. The uncertainty bars come from a 4,000-trial Monte Carlo over analyzer noise, the calibration fit and ±3% gas flow.
-- **Literature:** Perry's reports ~45 kmol/(h·m³·atm) for 25 mm saddles in 1 N NaOH. Scaling that value with √[OH⁻] down to this run's mean concentration of 0.061 M gives ~12. The higher measured value is consistent with the ½-in packing's larger surface area.
-- **NaOH vs. water:** the reaction keeps the CO₂ equilibrium partial pressure at the gas–liquid interface (y\*) near zero along the whole bed. With water, y\* rises quickly and the driving force collapses.
+</details>
 
 ## Equipment and conditions
 
@@ -81,25 +99,3 @@ The script prints a summary to the console and rewrites `results.json` and `inde
 
 Yaseen Fouad, Chemical Engineering, Rutgers University
 Process Engineering Laboratory I, Fall 2026
-
-<<<<<<< Updated upstream
-Lab data collected with Jess Lejuez and Ryan Steinhart.
-=======
-## API keys
-
-Secrets live in a local `.env` file, which is gitignored. To set it up:
-
-1. Copy `.env.example` to `.env`.
-2. Fill in your real values in `.env`.
-3. Load them in Python:
-
-```python
-from dotenv import load_dotenv
-import os
-
-load_dotenv()
-key = os.getenv("EXAMPLE_API_KEY")
-```
-
-Never commit `.env`. When you add a new key, also add it (with an empty value) to `.env.example`.
->>>>>>> Stashed changes
