@@ -82,4 +82,24 @@ The script prints a summary to the console and rewrites `results.json` and `inde
 Yaseen Fouad, Chemical Engineering, Rutgers University
 Process Engineering Laboratory I, Fall 2026
 
+<<<<<<< Updated upstream
 Lab data collected with Jess Lejuez and Ryan Steinhart.
+=======
+## API keys
+
+Secrets live in a local `.env` file, which is gitignored. To set it up:
+
+1. Copy `.env.example` to `.env`.
+2. Fill in your real values in `.env`.
+3. Load them in Python:
+
+```python
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+key = os.getenv("EXAMPLE_API_KEY")
+```
+
+Never commit `.env`. When you add a new key, also add it (with an empty value) to `.env.example`.
+>>>>>>> Stashed changes

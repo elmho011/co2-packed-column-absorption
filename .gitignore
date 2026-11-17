@@ -14,3 +14,9 @@ ts_out.txt
 # Python
 __pycache__/
 *.pyc
+
+# Secrets - never commit
+.env
+.env.*
+!.env.example
+secrets.*
