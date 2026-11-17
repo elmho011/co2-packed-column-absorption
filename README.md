@@ -81,4 +81,5 @@ The script prints a summary to the console and rewrites `results.json` and `inde
 
 Yaseen Fouad, Chemical Engineering, Rutgers University
 Process Engineering Laboratory I, Fall 2026
+
 Lab data collected with Jess Lejuez and Ryan Steinhart.
